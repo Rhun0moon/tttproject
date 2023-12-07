@@ -1,0 +1,204 @@
+body {
+	font-family: Arial, sans-serif;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+}
+
+/* header */
+header {
+	background-color: #3498db;
+	color: white;
+	text-align: center;
+	padding: 1em;
+	position: fixed; /* 수정: 화면 상단에 고정 */
+	width: 100%; /* 수정: 화면 전체 너비 차지 */
+	top: 0; /* 수정: 화면 상단에 정렬 */
+	z-index: 1000; /* 수정: 다른 요소 위에 표시되도록 설정 */
+}
+
+header img {
+	display: block;
+	margin: 0 auto;
+	height: 38px;
+}
+
+/* nav */
+nav {
+	background-color: lightblue;
+	color: black;
+	text-align: center;
+	position: fixed; /* 수정: 화면 상단에 고정 */
+	width: 100%; /* 수정: 화면 전체 너비 차지 */
+	top: 70px; /* 수정: header의 높이만큼 아래로 내림 */
+}
+
+nav ul {
+	list-style-type: none;
+	display: flex;
+	justify-content: space-around;
+}
+
+nav li{
+	display: inline;
+	width: 100%;
+	height: 100%;
+	padding: 0.5em;
+}
+
+nav li.nav1{
+    background-color: lightcoral;
+}
+
+/* main */
+#main {
+	/* background-color: lightcoral; */
+	margin: 10px;
+	width: 98%;
+	height: 80%;
+	display: flex;
+	flex-direction: row; /* 수정: 가로로 정렬하도록 변경 */
+	position: fixed; /* 수정: 화면 상단에 고정 */
+	top: 110px; /* 수정: 화면 상단에 정렬 */
+	z-index: 1000; /* 수정: 다른 요소 위에 표시되도록 설정 */
+}
+/* 시간표 */
+.main-content-70 {
+	background-color: rgb(240, 235, 235);
+	flex: 1; /* 나머지 공간을 전부 차지하도록 설정 */
+	width: 60%;
+	height: 100%;
+	margin-right: 10px;
+	padding: 20px;
+	box-sizing: border-box; /* 수정: 패딩 포함하여 너비 계산 */
+	overflow: auto;
+}
+
+.day-schedule{
+	margin-bottom: 20px;
+}
+.day-schedule h2{
+background-color: lightyellow;
+text-align: center;
+padding: 10px;
+}
+
+.day-schedule table {
+width: 100%;
+border-collapse: collapse;
+margin-top: 10px; /* 적절한 여백 추가 */
+}
+
+.day-schedule th, .day-schedule td {
+border: 1px solid black;
+padding: 8px;
+}
+
+.day-schedule th {
+background-color: #f2f2f2; /* th 배경색 설정 */
+}
+
+.day-schedule td {
+text-align: center;
+height: 70px;
+}
+
+
+/* 기능 */
+.main-content-30 {
+	background-color: lightskyblue;
+	width: 30%;
+	height: 100%;
+	margin-left: 10px;
+	padding: 10px;
+	box-sizing: border-box; /* 패딩을 포함한 너비로 계산하도록 설정 */
+	overflow: auto;
+}
+.content-cate {
+	padding: 10px;
+}
+.content-cate h2{
+	text-align: center;
+	padding-bottom: 10px;
+}
+
+/* 1. 검색하기 */
+#search {
+	background-color: #FFD3C0; /* 연한 살구색 */
+}
+
+/* 2. 카테고리별로 보기 */
+#categoryView {
+	background-color: #B4EDE6; /* 연한 초록색 */
+}
+
+/* 3. 강의실 관리 */
+#classroomManagement {
+	background-color: #FFD8C0; /* 연한 주황색 */
+}
+
+/* 4. 강사 관리 */
+#instructorManagement {
+	background-color: #D9D9FF; /* 연한 보라색 */
+}
+
+/* 5. 수업 추가 */
+#addClass {
+	background-color: #FFECB3; /* 연한 노랑색 */
+}
+
+/* 6. 상세보기 */
+#detailView {
+	background-color: #CCE5FF; /* 연한 파랑색 */
+}
+
+/* 추가된 스타일 */
+form {
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+margin-bottom: 10px;
+}
+
+label {
+margin-bottom: 5px;
+}
+
+input {
+padding: 8px;
+margin-bottom: 10px;
+width: 100%;
+box-sizing: border-box;
+}
+
+button {
+margin-top: 10px;
+padding: 8px;
+background-color: #3498db; /* 파란색 */
+color: white;
+border: none;
+cursor: pointer;
+}
+
+button:hover {
+background-color: #2980b9; /* 더 진한 파란색 */
+}
+
+.box1{
+	visibility: visible;
+}
+.box2{
+	visibility: collapse;
+}
+
+/* footer */
+footer {
+	background-color: #34495e;
+	color: white;
+	text-align: center;
+	padding: 1em;
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	height: 60px;
+}
