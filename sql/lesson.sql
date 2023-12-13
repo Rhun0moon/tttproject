@@ -45,5 +45,7 @@ DELETE FROM lesson;
 DROP TABLE lesson;
 
 -- 필요한 데이터 출력
-
 SELECT le.* FROM lesson as le JOIN classroom as cr ON le.l_building = cr.cr_building WHERE cr.cr_eng = 'yd1' GROUP BY le.l_id;
+SELECT * FROM lesson WHERE CONCAT_WS(" ", l_teacher, l_grade, l_subject) LIKE '%학%';
+
+

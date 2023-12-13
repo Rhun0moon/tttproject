@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>홈</title>
+
+	<!-- node 돌릴 때 -->
+	<link rel="stylesheet" href="./css/reset.css">
+	<link rel="stylesheet" href="./css/style2.css">
+
+	<!-- html 돌릴 때
+	<link rel="stylesheet" href="../public/css/reset.css">
+	<link rel="stylesheet" href="../public/css/style2.css">
+	-->
+</head>
+<body>
+    <!-- header -->
+    <header>
+		<!-- node 돌릴 때 -->
+		<a href="/"><img src="./img/logo.png" alt="로고 이미지"></a>
+
+		<!-- html 돌릴 때
+        <a href="/"><img src="../public/img/logo.png" alt="로고 이미지"></a> -->
+    </header>
+    
+    <!-- 카테고리 -->
+    <nav id="nav">
+		<ul>
+			<li class=""><a href="/tj">태전관</a></li>
+			<li class=""><a href="/ydm">역동관(본관)</a></li>
+			<li class=""><a href="/yd1">역동관(1관)</a></li>
+			<li class=""><a href="/yd3">역동관(3관)</a></li>
+		</ul>
+    </nav>
+    
+    <!-- 메인 -->
+    <div id="main">
+		<div id="table" class="main-content-70">
+			<p>건물을 선택하세요.</p>
+		</div>
+	
+		<div id="cate" class="main-content-30">
+			<!-- 1. 검색하기 -->
+			<div id="wordSearch" class="content-cate box1">
+				<h2>검색하기</h2>
+				<form action="/search_process" method="post" id="searchForm">
+					<label>검색어:</label>
+					<input type="text" id="searchInput" name="searchInput" required><br/>
+					<input type="submit" value="검색하기">
+				</form>
+			</div>
+		
+			<!-- 2. 카테고리별로 보기 -->
+			<div id="categoryView" class="content-cate box1">
+				<h2>카테고리별로 보기</h2>
+				<!-- 요일 -->
+				<form action="/category_process" method="post" id="weekViewForm">
+					<label style="font-weight: bold;">요일</label><br/>
+					<label><input type="checkbox" name="week" value="mon"> 월</label>
+					<label><input type="checkbox" name="week" value="tue"> 화</label>
+					<label><input type="checkbox" name="week" value="wed"> 수</label>
+					<label><input type="checkbox" name="week" value="thu"> 목</label>
+					<label><input type="checkbox" name="week" value="fri"> 금</label>
+					<label><input type="checkbox" name="week" value="sat"> 토</label>
+					<label><input type="checkbox" name="week" value="sun"> 일</label><br/>
+					<input type="submit" value="검색하기">
+				</form> <br/><br/>
+				<!-- 강의실 -->
+				<form action="/category_process" method="post" id="classroomViewForm">
+					<label style="font-weight: bold;">강의실</label><br/>
+					<label><input type="checkbox" name="classroom" value="1room"> 1강의실</label>
+					<label><input type="checkbox" name="classroom" value="2room"> 2강의실</label>
+					<label><input type="checkbox" name="classroom" value="3room"> 3강의실</label><br/>
+					<input type="submit" value="검색하기">
+				</form><br/><br/>
+				<!-- 강사 -->
+				<form action="/category_process" method="post" id="teacherViewForm">
+					<label style="font-weight: bold;">강사</label><br/>
+					<label><input type="checkbox" name="teacher" value="김선희T"> 김선희T</label>
+					<label><input type="checkbox" name="teacher" value="최영숙T"> 최영숙T</label>
+					<label><input type="checkbox" name="teacher" value="이정빈T"> 이정빈T</label><br/>
+					<input type="submit" value="검색하기">
+				</form><br/><br/>
+				<!-- 학년 -->
+				<form action="/category_process" method="post" id="gradeViewForm">
+					<label style="font-weight: bold;">학년</label><br/>
+					<label><input type="checkbox" name="grade" value="1학년"> 1학년</label>
+					<label><input type="checkbox" name="grade" value="2학년"> 2학년</label>
+					<label><input type="checkbox" name="grade" value="3학년"> 3학년</label><br/>
+					<input type="submit" value="검색하기">
+				</form><br/><br/>
+				<!-- 과목 -->
+				<form action="/category_process" method="post" id="subjectViewForm">
+					<label style="font-weight: bold;">과목</label><br/>
+					<label><input type="checkbox" name="subject" value="수학"> 수학</label>
+					<label><input type="checkbox" name="subject" value="영어"> 영어</label>
+					<label><input type="checkbox" name="subject" value="과학"> 과학</label><br/>
+					<input type="submit" value="검색하기">
+				</form>
+			</div>
+
+			<!-- 3. 강의실 관리 -->
+			<div id="classroomManagement" class="content-cate box1">
+				<h2>강의실 관리</h2>
+				<!-- 강의실 추가 -->
+				<form action="/classroom_add_process" method="post" id="classroomAddForm">
+					<label>건물:</label>
+					<label>건물이름</label> <br/>
+					<label>강의실:</label>
+					<input type="text" id="classroomInput" required> <br/>
+					<input type="submit" value="추가하기">
+				</form><br/><br/>	
+				<!-- 강의실 수정 -->		
+				<form action="/classroom_update_process" method="post" id="classroomUpdateForm">
+					<label>건물:</label>
+					<label>건물이름</label> <br/>
+					<label>수정 전 강의실:</label>
+					<label>
+						<select name="classroom">
+							<option value="1강의실">1강의실</option>
+							<option value="2강의실">2강의실</option>
+							<option value="3강의실">3강의실</option>
+						</select>
+					</label><br/>
+					<label>수정 후 강의실:</label>
+					<input type="text" id="classroomUpdate" required> <br/>
+					<input type="submit" value="수정하기">
+				</form><br/><br/>
+				<!-- 강의실 삭제 -->		
+				<form action="/classroom_delete_process" method="post" id="classroomDeleteForm">
+					<label>건물:</label>
+					<label>건물이름</label> <br/>
+					<label>강의실:</label>
+					<label>
+						<select name="classroom">
+							<option value="1강의실">1강의실</option>
+							<option value="2강의실">2강의실</option>
+							<option value="3강의실">3강의실</option>
+						</select>
+					</label><br/>
+					<input type="submit" value="삭제하기">
+				</form>
+			</div>
+
+			<!-- 4. 강사 관리 -->
+			<div id="teacherManagement" class="content-cate box1">
+				<h2>강사 관리</h2>
+				<!-- 강사 추가 -->
+				<form action="/teacher_add_process" method="post" id="teacherAddForm">
+					<label>이름:</label>
+					<input type="text" id="nameInput" required> <br/>
+					<label>색상:</label>
+					<input type="color" id="colorInput" required> <br/>
+					<input type="submit" value="추가하기">
+				</form><br/><br/>
+				<!-- 강사 수정 -->
+				<form action="/teacher_update_process" method="post" id="teacherUpdateForm">
+					<label>수정 전 이름:</label>
+					<label>
+						<select name="nameChoice">
+							<option value="김선희T">김선희T</option>
+							<option value="최영숙T">최영숙T</option>
+							<option value="이정빈T">이정빈T</option>
+						</select>
+					</label><br/>
+					<label>수정 후 이름:</label>
+					<input type="text" id="nameUpdate"> <br/>
+					<label>수정 후 색상:</label>
+					<input type="color" id="colorUpdate"> <br/>
+					<input type="submit" value="수정하기">
+				</form><br/><br/>
+				<!-- 강사 삭제 -->
+				<form action="/teacher_delete_process" method="post" id="teacherDeleteForm">
+					<label>이름:</label>
+					<label>
+						<select name="nameDelete">
+							<option value="김선희T">김선희T</option>
+							<option value="최영숙T">최영숙T</option>
+							<option value="이정빈T">이정빈T</option>
+						</select>
+					</label><br/>
+					<input type="submit" value="삭제하기">
+				</form>
+			</div>
+
+			<!-- 5. 수업 추가 -->
+			<div id="lessonsAdd" class="content-cate box1">
+				<h2>수업 추가</h2>
+				<!-- 입력 폼 -->
+				<form action="/lesson_add_process" method="post" id="lessonAddForm">
+					<label>요일:</label>
+					<label>
+						<select name="weekAdd">
+							<option value="mon">월요일</option>
+							<option value="tue">화요일</option>
+							<option value="wed">수요일</option>
+							<option value="thu">목요일</option>
+							<option value="fri">금요일</option>
+							<option value="sat">토요일</option>
+							<option value="sun">일요일</option>
+						</select>
+					</label> <br/>
+					<label>시간:</label>
+					<label>
+						<select name="firsttimeAdd">
+							<option value="13">13</option>
+							<option value="14">14</option>
+							<option value="15">15</option>
+							<option value="16">16</option>
+							<option value="17">17</option>
+							<option value="18">18</option>
+							<option value="19">19</option>
+							<option value="20">20</option>
+							<option value="21">21</option>
+						</select>
+					</label>
+					<label>:00 ~ </label>
+					<label>
+						<select name="secondtimeAdd">
+							<option value="14">14</option>
+							<option value="15">15</option>
+							<option value="16">16</option>
+							<option value="17">17</option>
+							<option value="18">18</option>
+							<option value="19">19</option>
+							<option value="20">20</option>
+							<option value="21">21</option>
+							<option value="22">22</option>
+						</select>
+					</label>
+					<label>:00</label> <br/>
+					<label>강의실:</label>
+					<label>
+						<label>
+							<select name="classroomAdd">
+								<option value="1강의실">1강의실</option>
+								<option value="2강의실">2강의실</option>
+								<option value="3강의실">3강의실</option>
+							</select>
+						</label><br/>
+					</label>
+					<label>강사:</label>
+					<label>
+						<select name="teacherAdd">
+							<option value="김선희T">김선희T</option>
+							<option value="최영숙T">최영숙T</option>
+							<option value="이정빈T">이정빈T</option>
+						</select>
+					</label><br/>
+					<label>학년:</label>
+					<input type="text" id="gradeAdd" required> <br/>
+					<label>과목:</label>
+					<input type="text" id="subjectAdd" required> <br/>
+					<label>수강인원:</label>
+					<input type="text" id="studentAdd" required> <br/>
+					<input type="submit" value="추가하기">
+				</form>
+			</div>
+
+			<!-- 6. 상세보기 -->
+			<div id="lessonView" class="content-cate box1">
+				<h2>상세보기</h2>
+				<!-- 수정 및 삭제 폼 -->
+				<form action="/lesson_view_process" method="post" id="lessonViewForm">
+					<label>요일:</label>
+					<label>
+						<select name="weekView">
+							<option value="mon">월요일</option>
+							<option value="tue">화요일</option>
+							<option value="wed">수요일</option>
+							<option value="thu">목요일</option>
+							<option value="fri">금요일</option>
+							<option value="sat">토요일</option>
+							<option value="sun">일요일</option>
+						</select>
+					</label> <br/>
+					<label>시간:</label>
+					<label>
+						<select name="firsttimeView">
+							<option value="13">13</option>
+							<option value="14">14</option>
+							<option value="15">15</option>
+							<option value="16">16</option>
+							<option value="17">17</option>
+							<option value="18">18</option>
+							<option value="19">19</option>
+							<option value="20">20</option>
+							<option value="21">21</option>
+						</select>
+					</label>
+					<label>:00 ~ </label>
+					<label>
+						<select name="secondtimeView">
+							<option value="14">14</option>
+							<option value="15">15</option>
+							<option value="16">16</option>
+							<option value="17">17</option>
+							<option value="18">18</option>
+							<option value="19">19</option>
+							<option value="20">20</option>
+							<option value="21">21</option>
+							<option value="22">22</option>
+						</select>
+					</label>
+					<label>:00</label> <br/>
+					<label>강의실:</label>
+					<label>
+						<label>
+							<select name="classroomView">
+								<option value="1강의실">1강의실</option>
+								<option value="2강의실">2강의실</option>
+								<option value="3강의실">3강의실</option>
+							</select>
+						</label><br/>
+					</label>
+					<label>강사:</label>
+					<label>
+						<select name="teacherView">
+							<option value="김선희T">김선희T</option>
+							<option value="최영숙T">최영숙T</option>
+							<option value="이정빈T">이정빈T</option>
+						</select>
+					</label><br/>
+					<label>학년:</label>
+					<input type="text" id="gradeView" required><br/>
+					<label>과목:</label>
+					<input type="text" id="subjectView" required><br/>
+					<label>수강인원:</label>
+					<input type="text" id="studentView" required><br/>
+					<input type="submit" value="수정하기">
+					<input type="submit" value="삭제하기">
+				</form>
+			</div>
+		</div>
+    </div>
+
+    <!-- footer -->
+    <footer>
+        <p>&copy; 2023 교사 시간표 웹사이트</p>
+    </footer>
+    
+</body>
+</html>

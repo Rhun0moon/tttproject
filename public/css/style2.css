@@ -120,10 +120,12 @@ height: 70px;
 .content-cate h2{
 	text-align: center;
 	padding-bottom: 10px;
+	font-size: large;
+	font-weight: bold;
 }
 
 /* 1. 검색하기 */
-#search {
+#wordSearch {
 	background-color: #FFD3C0; /* 연한 살구색 */
 }
 
@@ -138,28 +140,28 @@ height: 70px;
 }
 
 /* 4. 강사 관리 */
-#instructorManagement {
+#teacherManagement {
 	background-color: #D9D9FF; /* 연한 보라색 */
 }
 
 /* 5. 수업 추가 */
-#addClass {
+#lessonsAdd {
 	background-color: #FFECB3; /* 연한 노랑색 */
 }
 
 /* 6. 상세보기 */
-#detailView {
+#lessonView {
 	background-color: #CCE5FF; /* 연한 파랑색 */
 }
 
 /* 추가된 스타일 */
 form {
-display: flex;
-flex-direction: column;
-align-items: flex-start;
-margin-bottom: 10px;
+display:inline;
+/* flex-direction: column; 
+align-items: flex-start; 
+margin-bottom: 10px; */
 }
-
+/*
 label {
 margin-bottom: 5px;
 }
@@ -170,8 +172,12 @@ margin-bottom: 10px;
 width: 100%;
 box-sizing: border-box;
 }
+*/
+label {
+	margin-bottom: 5px;
+}
 
-button {
+input[type=submit] {
 margin-top: 10px;
 padding: 8px;
 background-color: #3498db; /* 파란색 */
@@ -180,16 +186,12 @@ border: none;
 cursor: pointer;
 }
 
-button:hover {
+input[type=submit]:hover {
 background-color: #2980b9; /* 더 진한 파란색 */
 }
 
-.box1{
-	visibility: visible;
-}
-.box2{
-	visibility: collapse;
-}
+.box1{ visibility: visible; }
+.box2{ display: none; }
 
 /* footer */
 footer {
